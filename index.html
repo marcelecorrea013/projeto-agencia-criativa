@@ -3,112 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agência Criativa Web | Maré Artesanal</title>
+    <title>Maré Artesanal - Entre Linhas e Códigos</title>
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Code+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
 
-    <header id="header">
-        <div class="container-header">
-            <div class="logo">Agência Criativa<span>Web</span></div>
+    <header class="header">
+        <div class="header__container">
+            <div class="header__logo">Maré Artesanal<span>.dev</span></div>
             
-            <div class="menu-toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-
-            <nav class="nav-menu">
-                <a href="#hero" class="nav-link">Home</a>
-                <a href="#sobre" class="nav-link">Sobre Nós</a>
-                <a href="#servicos" class="nav-link">Serviços</a>
-                <a href="#depoimentos" class="nav-link">Depoimentos</a>
-                <a href="#contato" class="btn-contato nav-link">Contato</a>
+            <nav class="header__nav">
+                <a href="#hero" class="header__link">Home</a>
+                <a href="#servicos" class="header__link">Serviços</a>
+                <a href="#contato" class="button button--small">Contato</a>
             </nav>
         </div>
     </header>
 
     <main>
-        <section id="hero">
-            <div class="hero-content">
-                <h1>Onde o fio encontra o bit.</h1>
-                <p>A paciência do artesanato tecendo soluções digitais inovadoras e responsivas.</p>
-                <a href="#servicos" class="btn-principal">Conheça nossos serviços</a>
+        <section id="hero" class="hero">
+            <div class="hero__content">
+                <h1 class="heading-primary">Onde o fio encontra o bit.</h1>
+                <p class="hero__text">A paciência do artesanato tecendo soluções digitais inovadoras.</p>
+                <a href="#servicos" class="button button--primary">Conheça meus serviços</a>
             </div>
         </section>
 
-        <section id="sobre" class="container">
-            <div class="grid-2">
-                <div class="secao-texto">
-                    <h2>Sobre Nós</h2>
-                    <p>Somos uma agência que acredita no <em>Slow Design</em>. Nossa missão é unir a atenção aos detalhes do artesanato manual com a eficiência do código moderno.</p>
-                    <p>Valorizamos a qualidade, a sustentabilidade e a experiência do usuário em cada pixel que "tecemos".</p>
-                </div>
-                <div class="secao-img">
-                    <img src="sua-foto-300.jpg" 
-                         srcset="sua-foto-300.jpg 300w, sua-foto-600.jpg 600w" 
-                         sizes="(max-width: 600px) 280px, 600px" 
-                         alt="Marcele - Desenvolvedora e Artesã" 
-                         class="img-responsiva">
-                </div>
-            </div>
-        </section>
+        <section id="servicos" class="section section--bg-suave">
+            <div class="container container--center">
+                <h2 class="heading-secondary">Serviços Criativos</h2>
+                <div class="services-grid">
+                    <article class="card">
+                        <h3 class="card__title">Design Gráfico</h3>
+                        <p class="card__description">Identidades visuais tecidas com cuidado e exclusividade.</p>
+                    </article>
 
-        <section id="servicos" class="bg-suave container">
-            <div class="centralizada">
-                <h2>Serviços Criativos</h2>
-                <div class="servicos-grid">
-                    <div class="card">
-                        <h3>Design Gráfico</h3>
-                        <p>Identidades visuais tecidas com cuidado e exclusividade.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Desenvolvimento Web</h3>
-                        <p>Sites responsivos utilizando HTML5, CSS3 e JavaScript.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Branding</h3>
-                        <p>Construção de marcas fortes e com alma artesanal.</p>
-                    </div>
+                    <article class="card">
+                        <h3 class="card__title">Desenvolvimento Web</h3>
+                        <p class="card__description">Sites responsivos criados ponto a ponto com código limpo.</p>
+                    </article>
+
+                    <article class="card">
+                        <h3 class="card__title">Consultoria Digital</h3>
+                        <p class="card__description">Estratégias para artesãos brilharem no mundo digital.</p>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section id="depoimentos" class="container">
-            <h2 class="centralizada">O que dizem nossos clientes</h2>
-            <div class="depoimentos-container">
-                <blockquote>
-                    <p>"O trabalho da Agência Criativa Web trouxe uma alma que eu não encontrava em outras empresas de tech."</p>
-                    <cite>— Ana Silva, Empreendedora</cite>
-                </blockquote>
-                <blockquote>
-                    <p>"Meu site ficou lindo, leve e funciona perfeitamente no celular. Recomendo muito!"</p>
-                    <cite>— Carlos Lima, Designer</cite>
-                </blockquote>
-            </div>
-        </section>
-
-        <section id="contato" class="container">
-            <div class="centralizada">
-                <h2>Contato</h2>
-                <p>Vamos conversar sobre o seu próximo projeto?</p>
-                <form id="meuFormulario" class="contato-form">
-              <input type="text" id="nome" placeholder="Seu Nome" required>
-              <input type="email" id="email" placeholder="Seu E-mail" required>
-              <textarea id="mensagem" placeholder="Sua Mensagem" rows="5" required></textarea>
-              <button type="submit" class="btn-principal">Enviar Mensagem</button>
+        <section id="contato" class="section">
+            <div class="container container--center">
+                <h2 class="heading-secondary">Vamos conversar?</h2>
+                <form id="meuFormulario" class="form">
+                    <div class="form__group">
+                        <input type="text" id="nome" placeholder="Seu nome" required class="form__input">
+                    </div>
+                    <div class="form__group">
+                        <input type="email" id="email" placeholder="Seu e-mail" required class="form__input">
+                    </div>
+                    <div class="form__group">
+                        <textarea id="mensagem" placeholder="Sua mensagem" required class="form__input form__textarea"></textarea>
+                    </div>
+                    <button type="submit" class="button button--primary" id="btn-enviar">Enviar Mensagem</button>
                 </form>
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        <p>&copy; 2026 Agência Criativa Web | Maré Artesanal - Entre Linhas e Códigos</p>
+        <p>&copy; 2026 Maré Artesanal - Entre Linhas e Códigos</p>
     </footer>
 
     <script src="scripts.js"></script>
