@@ -1,224 +1,76 @@
-/* =========================================
-   1. Variáveis de Cores e Configurações Base
-   ========================================= */
 :root {
-    --cor-fundo: #fdfaf6;
-    --cor-suave: #e0f2f1;
-    --cor-principal: #264653;
-    --cor-destaque: #d4a373;
-    --cor-destaque-hover: #bc8a5f;
-    --texto-claro: #ffffff;
-    --texto-escuro: #4a3f35;
-    
-    --fonte-titulo: 'Playfair Display', serif;
-    --fonte-corpo: 'Source Code Pro', monospace;
-    
-    --transicao-suave: all 0.3s ease-in-out;
+    --color-bg: #fdfaf6;
+    --color-soft: #e0f2f1;
+    --color-primary: #264653;
+    --color-accent: #d4a373;
+    --color-accent-hover: #bc8a5f;
+    --color-white: #ffffff;
+    --color-text: #4a3f35;
+    --font-title: 'Playfair Display', serif;
+    --font-code: 'Source Code Pro', monospace;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; /* Corrigido de box-shadow para box-sizing */
-}
-
-html {
-    scroll-behavior: smooth; 
-    font-size: 16px;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    font-family: var(--fonte-corpo);
-    background-color: var(--cor-fundo);
-    color: var(--texto-escuro);
-    line-height: 1.8;
-    overflow-x: hidden;
+    font-family: var(--font-code);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    padding-top: 100px; /* Ajuste para o menu fixo não tampar o texto */
 }
 
-h1, h2, h3 {
-    font-family: var(--fonte-titulo);
-    color: var(--cor-principal);
-    font-weight: 700;
-    margin-bottom: 1rem;
-}
+.container { padding: 40px 5%; max-width: 1200px; margin: 0 auto; }
+.container--center { text-align: center; }
+.section { padding: 60px 0; }
+.section--bg-suave { background-color: var(--color-soft); }
 
-img {
-    max-width: 100%; /* Garante que imagens sejam responsivas */
-    height: auto;
-    border-radius: 8px;
-}
+.heading-primary { font-family: var(--font-title); font-size: 3.5rem; color: var(--color-primary); margin-bottom: 20px; }
+.heading-secondary { font-family: var(--font-title); font-size: 2.2rem; color: var(--color-primary); margin-bottom: 30px; }
 
-/* =========================================
-   2. Componentes e Layout
-   ========================================= */
-.container {
-    padding: 80px 10%; /* Ajustado para rem/pixels flexíveis */
-}
-
-.centralizada {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.bg-suave {
-    background-color: var(--cor-suave);
-}
-
-.btn-principal, .btn-contato {
-    display: inline-block;
-    padding: 12px 30px;
-    border-radius: 30px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    cursor: pointer;
-    border: none;
-}
-
-.btn-principal {
-    background-color: var(--cor-destaque);
-    color: var(--texto-claro);
-    margin-top: 20px;
-}
-
-.btn-principal:hover {
-    background-color: var(--cor-destaque-hover);
-    transform: translateY(-3px);
-}
-
-/* =========================================
-   3. Header e Navegação (Flexbox)
-   ========================================= */
-header {
-    background-color: rgba(253, 250, 246, 0.9);
-    padding: 20px 5%;
+/* HEADER */
+.header {
+    background-color: rgba(253, 250, 246, 0.98);
+    padding: 15px 5%;
     position: fixed;
-    width: 100%; /* Corrigido de 90% para 100% para cobrir o topo */
-    top: 0;
-    z-index: 1000;
-    transition: var(--transicao-suave);
+    width: 100%; top: 0; left: 0; z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-.container-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+.header__container { display: flex; justify-content: space-between; align-items: center; }
+.header__logo { font-weight: 700; color: var(--color-primary); font-size: 1.4rem; }
+.header__logo span { color: var(--color-accent); }
+.header__nav { display: flex; gap: 25px; align-items: center; }
+.header__link { text-decoration: none; color: var(--color-text); font-size: 0.9rem; font-weight: 600; }
 
-.logo span {
-    color: var(--cor-principal);
-    font-weight: 400;
-}
+/* HERO */
+.hero { text-align: center; padding: 100px 5%; background: linear-gradient(to bottom, #fdfaf6, #e0f2f1); }
+.hero__text { font-size: 1.2rem; max-width: 600px; margin: 0 auto 30px; }
 
-.nav-menu {
-    display: flex;
-    align-items: center;
+/* BOTÕES */
+.button {
+    display: inline-block; border-radius: 30px; text-decoration: none;
+    font-weight: 600; cursor: pointer; transition: 0.3s; border: none;
 }
+.button--primary { background-color: var(--color-accent); color: white; padding: 15px 40px; font-size: 1.1rem; }
+.button--primary:hover { background-color: var(--color-accent-hover); transform: translateY(-3px); }
+.button--small { background-color: var(--color-primary); color: white; padding: 8px 20px; }
 
-.nav-menu a {
-    color: var(--texto-escuro);
-    margin-left: 1.5rem; /* Unidade relativa */
-    font-size: 0.9rem;
-}
-
-/* =========================================
-   4. Seção Serviços (CSS Grid - Requisito)
-   ========================================= */
-.servicos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsivo sem media query */
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
+/* CARDS */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 20px 0; }
 .card {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: var(--transicao-suave);
-    border-bottom: 4px solid var(--cor-suave);
+    background: white; padding: 40px; border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05); border-bottom: 5px solid var(--color-soft); transition: 0.3s;
 }
+.card:hover { transform: translateY(-10px); border-bottom-color: var(--color-accent); }
 
-.card:hover {
-    transform: translateY(-10px);
-    border-bottom-color: var(--cor-destaque);
+/* FORMULÁRIO */
+.form { max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
+.form__input {
+    width: 100%; padding: 15px; border-radius: 10px;
+    border: 2px solid var(--color-soft); font-family: inherit; font-size: 1rem;
 }
+.form__input:focus { outline: none; border-color: var(--color-accent); }
+.form__textarea { min-height: 150px; resize: none; }
 
-/* =========================================
-   5. Depoimentos e Formulário
-   ========================================= */
-.depoimentos-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
-    margin-top: 2rem;
-}
-
-blockquote {
-    flex: 1 1 300px;
-    background: white;
-    padding: 2rem;
-    border-left: 5px solid var(--cor-destaque);
-    font-style: italic;
-}
-
-.contato-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
-.contato-form input, .contato-form textarea {
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-family: var(--fonte-corpo);
-}
-
-/* =========================================
-   6. Responsividade (Media Queries)
-   ========================================= */
-@media (max-width: 992px) {
-    .container { padding: 60px 5%; }
-    #hero h1 { font-size: 2.5rem; }
-    .grid-2 { grid-template-columns: 1fr; text-align: center; }
-}
-
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        cursor: pointer;
-    }
-
-    .bar {
-        width: 25px;
-        height: 3px;
-        background-color: var(--cor-principal);
-        transition: 0.3s;
-    }
-
-    .nav-menu {
-        display: none; /* Esconde por padrão */
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background-color: white;
-        flex-direction: column;
-        padding: 20px;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-    }
-
-    .nav-menu.active {
-        display: flex !important; /* Mostra quando o JS clicar */
-    }
-
-    .nav-menu a {
-        margin: 15px 0;
-    }
-}
+.footer { padding: 40px; text-align: center; font-size: 0.8rem; opacity: 0.7; }
